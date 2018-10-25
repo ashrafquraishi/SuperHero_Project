@@ -16,7 +16,9 @@ namespace Super_Heroes.Controllers
       
         public ActionResult Index()
         {
-            return View();
+            List<SuperHeroModel> superHeroes = new List<SuperHeroModel>();
+            superHeroes = db.Superhero.ToList();
+            return View(superHeroes);
         }
 
         //GET:
@@ -26,8 +28,10 @@ namespace Super_Heroes.Controllers
             return View();
         }
 
+
+
         [HttpPost]
-        public ActionResult Create([Bind(Include = "SuperHeroName,primarysuperheroability,secondarysuperheroability,alterego,catchPhrase") SuperHeroModel newHero)
+        public ActionResult Create([Bind(Include = "SuperHeroName,primarysuperheroability,secondarysuperheroability,alterego,catchPhrase")] SuperHeroModel newHero)
         {
 
             db.Superhero.Add(newHero);
