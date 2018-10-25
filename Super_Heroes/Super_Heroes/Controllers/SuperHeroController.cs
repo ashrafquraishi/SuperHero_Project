@@ -10,28 +10,31 @@ namespace Super_Heroes.Controllers
     public class SuperHeroController : Controller
     {
         ApplicationDbContext db = new ApplicationDbContext();
+        
+        
         // GET: SuperHero
       
         public ActionResult Index()
         {
             return View();
         }
-        [HttpPost]
-        public ActionResult Create(SuperHeroModel newHero)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Superhero.Add(newHero);
-                db.SaveChanges();
-                return View();
-            }
 
-            else
-            {
-                return View();
-            }
+        //GET:
+        public ActionResult Create()
+        {
+            SuperHeroModel createsuperhero = new SuperHeroModel();
+            return View();
         }
 
+        [HttpPost]
+        public ActionResult Create([Bind(Include = "SuperHeroName,primarysuperheroability,secondarysuperheroability,alterego,catchPhrase") SuperHeroModel newHero)
+        {
+
+            db.Superhero.Add(newHero);
+            db.SaveChanges();
+            return View("Index");
+
+        }
             [HttpPost]
         public ActionResult Delete(int Id)
         {
@@ -57,7 +60,7 @@ namespace Super_Heroes.Controllers
         [HttpPost]
         public ActionResult Edit(SuperHeroModel Hero)
         {
-
+            return RedirectToAction("Index");
         }
 
 

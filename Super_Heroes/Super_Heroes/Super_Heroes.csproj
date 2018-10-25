@@ -205,6 +205,10 @@
     <Compile Include="Migrations\201810241853099_Superhero.Designer.cs">
       <DependentUpon>201810241853099_Superhero.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201810251537321_Added methods .cs" />
+    <Compile Include="Migrations\201810251537321_Added methods .Designer.cs">
+      <DependentUpon>201810251537321_Added methods .cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -273,6 +277,10 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\SuperHero\SuperHeroView.cshtml" />
+    <Content Include="Views\SuperHero\Create.cshtml" />
+    <Content Include="Views\SuperHero\Delete.cshtml" />
+    <Content Include="Views\SuperHero\Edit.cshtml" />
+    <Content Include="Views\SuperHero\Info.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -293,6 +301,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201810241853099_Superhero.resx">
       <DependentUpon>201810241853099_Superhero.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810251537321_Added methods .resx">
+      <DependentUpon>201810251537321_Added methods .cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
