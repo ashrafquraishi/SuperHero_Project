@@ -7,13 +7,13 @@ namespace Super_Heroes.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class Superhero : IMigrationMetadata
+    public sealed partial class initial1 : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Superhero));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(initial1));
         
         string IMigrationMetadata.Id
         {
-            get { return "201810241853099_Superhero"; }
+            get { return "201810251959525_initial1"; }
         }
         
         string IMigrationMetadata.Source

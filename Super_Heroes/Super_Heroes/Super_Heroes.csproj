@@ -201,13 +201,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201810241853099_Superhero.cs" />
-    <Compile Include="Migrations\201810241853099_Superhero.Designer.cs">
-      <DependentUpon>201810241853099_Superhero.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201810251537321_Added methods .cs" />
-    <Compile Include="Migrations\201810251537321_Added methods .Designer.cs">
-      <DependentUpon>201810251537321_Added methods .cs</DependentUpon>
+    <Compile Include="Migrations\201810251959525_initial1.cs" />
+    <Compile Include="Migrations\201810251959525_initial1.Designer.cs">
+      <DependentUpon>201810251959525_initial1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -301,11 +297,8 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201810241853099_Superhero.resx">
-      <DependentUpon>201810241853099_Superhero.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201810251537321_Added methods .resx">
-      <DependentUpon>201810251537321_Added methods .cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201810251959525_initial1.resx">
+      <DependentUpon>201810251959525_initial1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

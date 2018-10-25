@@ -3,7 +3,7 @@ namespace Super_Heroes.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class Superhero : DbMigration
+    public partial class initial1 : DbMigration
     {
         public override void Up()
         {
@@ -29,6 +29,19 @@ namespace Super_Heroes.Migrations
                 .ForeignKey("dbo.AspNetUsers", t => t.UserId, cascadeDelete: true)
                 .Index(t => t.UserId)
                 .Index(t => t.RoleId);
+            
+            CreateTable(
+                "dbo.SuperHeroModels",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        SuperHeroName = c.String(),
+                        primarysuperheroability = c.String(),
+                        secondarysuperheroability = c.String(),
+                        alterego = c.String(),
+                        catchPhrase = c.String(),
+                    })
+                .PrimaryKey(t => t.Id);
             
             CreateTable(
                 "dbo.AspNetUsers",
@@ -92,6 +105,7 @@ namespace Super_Heroes.Migrations
             DropTable("dbo.AspNetUserLogins");
             DropTable("dbo.AspNetUserClaims");
             DropTable("dbo.AspNetUsers");
+            DropTable("dbo.SuperHeroModels");
             DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.AspNetRoles");
         }

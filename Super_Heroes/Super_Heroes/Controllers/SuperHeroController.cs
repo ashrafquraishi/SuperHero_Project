@@ -17,7 +17,7 @@ namespace Super_Heroes.Controllers
         public ActionResult Index()
         {
             List<SuperHeroModel> superHeroes = new List<SuperHeroModel>();
-            superHeroes = db.Superhero.ToList();
+            superHeroes = db.SuperHeroModels.ToList();
             return View(superHeroes);
         }
 
@@ -25,7 +25,7 @@ namespace Super_Heroes.Controllers
         public ActionResult Create()
         {
             SuperHeroModel createsuperhero = new SuperHeroModel();
-            return View();
+            return View(createsuperhero);
         }
 
 
@@ -34,18 +34,18 @@ namespace Super_Heroes.Controllers
         public ActionResult Create([Bind(Include = "SuperHeroName,primarysuperheroability,secondarysuperheroability,alterego,catchPhrase")] SuperHeroModel newHero)
         {
 
-            db.Superhero.Add(newHero);
+            db.SuperHeroModels.Add(newHero);
             db.SaveChanges();
-            return View("Index");
+            return RedirectToAction("Index");
 
         }
-            [HttpPost]
+        
         public ActionResult Delete(int Id)
         {
-            SuperHeroModel hero = db.Superhero.Where(s => s.Id == Id).Single();
-            db.Superhero.Remove(hero);
+            SuperHeroModel hero = db.SuperHeroModels.Where(s => s.Id == Id).SingleOrDefault();
+            db.SuperHeroModels.Remove(hero);
             db.SaveChanges();
-            return View();
+            return RedirectToAction("Index");
 
 
 
@@ -53,17 +53,23 @@ namespace Super_Heroes.Controllers
         
        public ActionResult Details(int Id)
        {
-            SuperHeroModel hero = db.Superhero.Where(s => s.Id == Id).FirstOrDefault();
+            SuperHeroModel hero = db.SuperHeroModels.Where(s => s.Id == Id).FirstOrDefault();
             return View(hero);
        }
         public ActionResult Edit(int Id)
         {
-            var hero = db.Superhero.Where(h => h.Id == Id).FirstOrDefault();
+            var hero = db.SuperHeroModels.Where(h => h.Id == Id).FirstOrDefault();
             return View(hero);
         }
         [HttpPost]
         public ActionResult Edit(SuperHeroModel Hero)
         {
+            var foundHero = db.SuperHeroModels.Where(h => h.Id == Hero.Id).FirstOrDefault();
+            foundHero.alterego = Hero.alterego;
+            foundHero.catchPhrase = Hero.catchPhrase;
+            foundHero.primarysuperheroability= Hero.primarysuperheroability;
+            foundHero.secondarysuperheroability = Hero.secondarysuperheroability;
+            db.SaveChanges();
             return RedirectToAction("Index");
         }
 

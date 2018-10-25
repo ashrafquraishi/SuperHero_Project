@@ -31,6 +31,6 @@ namespace Super_Heroes.Models
             return new ApplicationDbContext();
         }
 
-        public DbSet<SuperHeroModel> Superhero { get; set; }
+        public DbSet<SuperHeroModel> SuperHeroModels { get; set; }
     }
 }
