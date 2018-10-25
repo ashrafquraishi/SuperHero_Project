@@ -23,11 +23,14 @@ namespace Super_Heroes.Models
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
+            DbSet<SuperHeroModel> SuperHeroModel;
         }
 
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<Super_Heroes.Models.SuperHeroModel> SuperHeroModels { get; set; }
     }
 }
