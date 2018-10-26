@@ -53,9 +53,15 @@ namespace Super_Heroes.Controllers
         
        public ActionResult Details(int Id)
        {
-            SuperHeroModel hero = db.SuperHeroModels.Where(s => s.Id == Id).FirstOrDefault();
+           var hero = db.SuperHeroModels.Where(s => s.Id == Id).First();
             return View(hero);
        }
+        [HttpPost]
+        public ActionResult Details(int Id, SuperHeroModel superHero)
+        {
+          SuperHeroModel Hero = db.SuperHeroModels.Where(s => s.Id ==superHero.Id).First();
+            return RedirectToAction("Index");
+        }
         public ActionResult Edit(int Id)
         {
             var hero = db.SuperHeroModels.Where(h => h.Id == Id).FirstOrDefault();
